@@ -1,0 +1,135 @@
+form {
+    background-color: #00000000;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    position: relative;
+    display: flex;
+    background-color: #ffffff00;
+}
+
+label .input {
+    background-color: #fff;
+    width: 100%;
+    padding: 1rem;
+    margin: .5rem;
+    outline: 0;
+    border: 1px solid rgba(105, 105, 105, 0.397);
+    border-radius: 10px;
+}
+
+label .input + span {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 1rem;
+    padding: .1rem;
+    left: 1rem;
+    top: 1.5rem;
+    color: grey;
+    font-size: 0.9em;
+    cursor: text;
+    transition: 0.3s ease;
+}
+label .input + span + span {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 1rem;
+    padding: .1rem;
+    right: 1rem;
+    top: 1.5rem;
+    color: grey;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+label .input:placeholder-shown + span {
+    top: 1.5rem;
+    font-size: 0.9em;
+}
+
+label .input:focus + span,label .input:valid + span {
+    top: 3rem;
+    font-size: 0.7em;
+    font-weight: 600;
+}
+label .input:valid + span {
+    color: green;
+}
+label.invalid .input:invalid + span {
+    color: red;
+}
+
+
+label .input + span {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 1rem;
+    padding: .1rem;
+    left: 1rem;
+    top: 1.5rem;
+    color: grey;
+    font-size: 0.9em;
+    cursor: text;
+    transition: 0.3s ease;
+}
+
+label .input:placeholder-shown + span {
+    top: 1.5rem;
+    font-size: 0.9em;
+}
+
+label .input:focus + span,label .input:valid + span {
+    top: 3rem;
+    font-size: 0.7em;
+    font-weight: 600;
+}
+label .input:valid + span {
+    color: green;
+}
+label.invalid .input:invalid + span {
+    color: red;
+}
+
+label .textarea {
+    resize: none;
+    background-color: #fff;
+    width: 100%;
+    padding: 1rem;
+    margin: .5rem;
+    outline: 0;
+    border: 1px solid rgba(105, 105, 105, 0.397);
+    border-radius: 10px;
+}
+
+label .textarea + span {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 1rem;
+    padding: .1rem;
+    left: 1rem;
+    top: 1.5rem;
+    color: grey;
+    font-size: 0.9em;
+    cursor: text;
+    transition: 0.3s ease;
+}
+
+label .textarea:placeholder-shown + span {
+    top: 1.5rem;
+    font-size: 0.9em;
+}
+
+label .textarea:focus + span,label .textarea:valid + span {
+    top: 4rem;
+    font-size: 0.7em;
+    font-weight: 600;
+}
+label .textarea:valid + span {
+    color: green;
+}
+label.invalid .textarea:invalid + span {
+    color: red;
+}
