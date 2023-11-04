@@ -44,7 +44,7 @@ jobs:
           # Defaults to the user or organization that owns the workflow file
           scope: '@octocat'
       - run: |
-            yarn version --new-version --no-git-tag-version "${{ needs.calculate-version.outputs.MajorMinorPatch }}"
+            yarn version --new-version "${{ needs.calculate-version.outputs.MajorMinorPatch }}" --no-git-tag-version
             yarn
             yarn publish
         env:
