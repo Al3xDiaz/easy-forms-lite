@@ -1,20 +1,33 @@
 {
   "name": "form-lite",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
   "main": "lib/index.js",
   "scripts": {
     "build": "tsc src/**/*.ts* --outDir lib --jsx react-jsx",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "react",
+    "form",
+    "frontend",
+    "input"
+  ],
+  "author": "al3xdiaz",
+  "license": "MIT",
   "devDependencies": {
     "typescript": "^4.7.4"
   },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Al3xDiaz/form-lite.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Al3xDiaz/form-lite/issues"
+  },
+  "homepage": "https://github.com/Al3xDiaz/form-lite#readme",
+  "description": ""
 }
