@@ -2,6 +2,7 @@
   "name": "form-with-state",
   "version": "0.0.1",
   "main": "lib/index.js",
+  "types": "lib/index.js",
   "scripts": {
     "prepare": "yarn build",
     "build": "rm -rf lib/ && tsc --project tsconfig.json",
