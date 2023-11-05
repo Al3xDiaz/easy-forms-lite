@@ -1,10 +1,10 @@
 import React  from "react";
 import IAction from "./reducer";
 
-interface Dictionary{
+export interface Dictionary{
     [Key: string]: number | string | Date;
 }
-interface IContextState{
+export interface IContextState{
     state: Dictionary;
     dispatch?: React.Dispatch<IAction>;
 }

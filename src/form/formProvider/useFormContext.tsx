@@ -1,9 +1,9 @@
 import { useCallback, useContext, useEffect, useRef } from "react"
-import context from "./context"
-import { IState } from "./reducer";
+import context from "@/src/form/formProvider/context"
+import { IState } from "@/src/form/formProvider/reducer";
 
 
-const useSite = () => {
+export const useSite = () => {
     const {state,dispatch} = useContext(context);
 
     const setProp= useCallback((payload:IState)=>{
