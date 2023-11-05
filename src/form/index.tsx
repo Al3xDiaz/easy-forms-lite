@@ -2,10 +2,6 @@ import React, { FC, useReducer } from "react";
 import context from "./formProvider/context"
 import { reducer } from "./formProvider/useReducer";
 
-import {TextArea,TextField} from "./input"
-import {PasswordField} from "./password"
-import {Button} from "./btn"
-
 import "./index.css"
 
 export interface IInput {
@@ -30,10 +26,4 @@ const Form:FC<IForm> =  ({children,onSubmit})=>{
     )
 }
 
-export default {
-    Form,
-    TextArea,
-    TextField,
-    PasswordField,
-    Button
-}
+export default Form;

@@ -4,7 +4,7 @@
   "main": "lib/index.js",
   "scripts": {
     "prepare": "yarn build",
-    "build": "tsc src/**/*.ts* --outDir lib --jsx react-jsx",
+    "build": "rm -rf lib/ && tsc --project tsconfig.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -16,6 +16,7 @@
   "author": "al3xdiaz",
   "license": "MIT",
   "devDependencies": {
+    "@types/react": "^18.2.35",
     "typescript": "^4.7.4"
   },
   "dependencies": {
