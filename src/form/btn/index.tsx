@@ -5,7 +5,7 @@ interface iprops{
     style?: React.CSSProperties;
 }
 
-export const Button = ({label,style}:iprops)=> {
+export const Button: React.FC<iprops> = ({label,style})=> {
     return <button
         type="submit"
         style={{

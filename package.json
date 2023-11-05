@@ -20,8 +20,8 @@
     "typescript": "^4.7.4"
   },
   "dependencies": {
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "description": "```bash npm i form-lite ```",
   "directories": {
