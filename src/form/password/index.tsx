@@ -1,6 +1,6 @@
 import React,{ FC, PropsWithChildren, RefAttributes, useState } from 'react'
-import {IInput} from "@/src/form"
-import useFormContext from "@/src/form/formProvider/useFormContext";
+import {IInput} from ".."
+import useFormContext from "../formProvider/useFormContext";
 
 interface Iprops extends IInput {
     label?:string,

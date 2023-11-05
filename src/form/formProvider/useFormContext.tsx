@@ -1,6 +1,6 @@
 import { useCallback, useContext, useEffect, useRef } from "react"
-import context from "@/src/form/formProvider/context"
-import { IState } from "@/src/form/formProvider/reducer";
+import context from "./context"
+import { IState } from "./reducer";
 
 
 export const useSite = () => {

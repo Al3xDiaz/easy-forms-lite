@@ -1,7 +1,7 @@
-import form from "@/src/form";
-import {TextArea,TextField} from "@/src/form/input";
-import {PasswordField} from "@/src/form/password";
-import {Button} from "@/src/form/btn";
+import form from "./form";
+import {TextArea,TextField} from "./form/input";
+import {PasswordField} from "./form/password";
+import {Button} from "./form/btn";
 
 export interface IForm extends React.FC<any>{
     TextField:React.FC<any> ;
