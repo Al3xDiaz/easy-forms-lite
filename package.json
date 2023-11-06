@@ -2,7 +2,6 @@
   "name": "form-with-state",
   "version": "0.0.1",
   "main": "dist/index.jsx",
-  "private":"false",
   "scripts": {
     "prepare": "yarn build",
     "build": "rm -rf dist/ && tsc --project tsconfig.json",
