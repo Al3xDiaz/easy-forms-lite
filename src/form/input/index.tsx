@@ -8,7 +8,7 @@ const Container =styled.label`
     display: flex;
     background-color: #ffffff00;
 
-    & .input{
+    & .input {
         background-color: #fff;
         width: 100%;
         padding: 1rem;
@@ -17,7 +17,7 @@ const Container =styled.label`
         border: 1px solid rgba(105, 105, 105, 0.397);
         border-radius: 10px;
     }
-    & .input + span{
+    & .input + span {
         position: absolute;
         background-color: #fff;
         border-radius: 1rem;
@@ -29,7 +29,7 @@ const Container =styled.label`
         cursor: text;
         transition: 0.3s ease;
     }
-    & .input + span + span{
+    & .input + span + span {
         position: absolute;
         background-color: #fff;
         border-radius: 1rem;
@@ -53,7 +53,7 @@ const Container =styled.label`
     & .input:valid + span {
         color: green;
     }
-    label.invalid .input:invalid + span {
+    & .invalid .input:invalid + span {
         color: red;
     }
 
@@ -76,7 +76,7 @@ const Container =styled.label`
         font-size: 0.9em;
     }
 
-    & .input:focus + span,label .input:valid + span {
+    & .input:focus + span, & .input:valid + span {
         top: 3rem;
         font-size: 0.7em;
         font-weight: 600;
@@ -84,7 +84,7 @@ const Container =styled.label`
     & .input:valid + span {
         color: green;
     }
-    label.invalid .input:invalid + span {
+    & .invalid .input:invalid + span {
         color: red;
     }
 
@@ -117,7 +117,7 @@ const Container =styled.label`
         font-size: 0.9em;
     }
 
-    & .textarea:focus + span,label .textarea:valid + span {
+    & .textarea:focus + span, & .textarea:valid + span {
         top: 4rem;
         font-size: 0.7em;
         font-weight: 600;
@@ -125,7 +125,7 @@ const Container =styled.label`
     & .textarea:valid + span {
         color: green;
     }
-    label.invalid .textarea:invalid + span {
+    & .invalid .textarea:invalid + span {
         color: red;
     }
 `;
