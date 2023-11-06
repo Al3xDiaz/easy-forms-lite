@@ -43,9 +43,8 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
           # Defaults to the user or organization that owns the workflow file
           scope: '@octocat'
-      - run: |
-            yarn version --new-version "${{ needs.calculate-version.outputs.MajorMinorPatch }}" --no-git-tag-version
-            yarn
-            yarn publish
+      - run: yarn version --new-version "${{ needs.calculate-version.outputs.MajorMinorPatch }}" --no-git-tag-version
+      - run: yarn
+      - run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
