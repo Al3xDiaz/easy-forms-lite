@@ -1,4 +1,4 @@
-import { useCallback, useContext, useEffect, useRef } from "react"
+import { useCallback, useContext } from "react"
 import context from "./context"
 import { IState } from "./reducer";
 

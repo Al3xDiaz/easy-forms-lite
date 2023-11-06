@@ -2,8 +2,6 @@ import React, { FC, useReducer } from "react";
 import context from "./formProvider/context"
 import { reducer } from "./formProvider/useReducer";
 
-import "./index.css"
-
 export interface IInput {
     name: string;
 }

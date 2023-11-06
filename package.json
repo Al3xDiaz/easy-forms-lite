@@ -1,41 +1,75 @@
 {
-  "name": "form-with-state",
   "version": "0.0.1",
-  "main": "dist/index.jsx",
-  "scripts": {
-    "prepare": "yarn build",
-    "build": "rm -rf dist/ && tsc --project tsconfig.json",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "keywords": [
     "react",
     "form",
     "frontend",
     "input"
   ],
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test --passWithNoTests",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
+  },
+  "peerDependencies": {
+    "react": ">=16"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "form-with-state",
   "author": "al3xdiaz",
-  "license": "MIT",
+  "module": "dist/form-with-state.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/form-with-state.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/form-with-state.esm.js",
+      "limit": "10 KB"
+    }
+  ],
   "devDependencies": {
-    "@babel/cli": "^7.23.0",
-    "@babel/preset-react": "^7.22.15",
+    "@size-limit/preset-small-lib": "^10.0.2",
     "@types/react": "^18.2.35",
-    "ts-loader": "^9.5.0",
-    "typescript": "^4.9.5"
-  },
-  "dependencies": {
+    "@types/react-dom": "^18.2.14",
+    "@types/react-test-renderer": "^18.0.5",
+    "husky": "^8.0.3",
+    "postcss": "^8.0.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-test-renderer": "^18.2.0",
+    "size-limit": "^10.0.2",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.6.2",
+    "typescript": "^5.2.2"
   },
+  "description": "```ts import React from \"react\" import Form from \"form-lite\"",
   "directories": {
-    "dist": "dist"
+    "example": "example",
+    "test": "test"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Al3xDiaz/form-with-state.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Al3xDiaz/form-with-state/issues"
-  },
-  "homepage": "https://github.com/Al3xDiaz/form-with-state#readme",
-  "description": "```ts import React from \"react\" import Form from \"form-lite\""
+  "license": "ISC"
 }
