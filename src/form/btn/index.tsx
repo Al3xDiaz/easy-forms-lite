@@ -1,11 +1,11 @@
 import React from "react";
 
-interface iprops{
+interface iProps{
     label: string;
     style?: React.CSSProperties;
 }
 
-export const Button: React.FC<iprops> = ({label,style})=> {
+export const Submit: React.FC<iProps> = ({label,style})=> {
     return <button
         type="submit"
         style={{

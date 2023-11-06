@@ -45,12 +45,12 @@ const Container =styled.label`
         top: 1.5rem;
         font-size: 0.9em;
     }
-    &.input:focus + span,label .input:valid + span {
+    & .input:focus + span,label .input:valid + span {
         top: 3rem;
         font-size: 0.7em;
         font-weight: 600;
     }
-    &.input:valid + span {
+    & .input:valid + span {
         color: green;
     }
     label.invalid .input:invalid + span {
@@ -58,7 +58,7 @@ const Container =styled.label`
     }
 
 
-    &.input + span {
+    & .input + span {
         position: absolute;
         background-color: #fff;
         border-radius: 1rem;
@@ -71,24 +71,24 @@ const Container =styled.label`
         transition: 0.3s ease;
     }
 
-    &.input:placeholder-shown + span {
+    & .input:placeholder-shown + span {
         top: 1.5rem;
         font-size: 0.9em;
     }
 
-    &.input:focus + span,label .input:valid + span {
+    & .input:focus + span,label .input:valid + span {
         top: 3rem;
         font-size: 0.7em;
         font-weight: 600;
     }
-    &.input:valid + span {
+    & .input:valid + span {
         color: green;
     }
     label.invalid .input:invalid + span {
         color: red;
     }
 
-    &.textarea {
+    & .textarea {
         resize: none;
         background-color: #fff;
         width: 100%;
@@ -99,7 +99,7 @@ const Container =styled.label`
         border-radius: 10px;
     }
 
-    &.textarea + span {
+    & .textarea + span {
         position: absolute;
         background-color: #fff;
         border-radius: 1rem;
@@ -112,17 +112,17 @@ const Container =styled.label`
         transition: 0.3s ease;
     }
 
-    &.textarea:placeholder-shown + span {
+    & .textarea:placeholder-shown + span {
         top: 1.5rem;
         font-size: 0.9em;
     }
 
-    &.textarea:focus + span,label .textarea:valid + span {
+    & .textarea:focus + span,label .textarea:valid + span {
         top: 4rem;
         font-size: 0.7em;
         font-weight: 600;
     }
-    &.textarea:valid + span {
+    & .textarea:valid + span {
         color: green;
     }
     label.invalid .textarea:invalid + span {
