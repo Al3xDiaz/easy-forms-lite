@@ -5,10 +5,16 @@
 import React from "react"
 import Form from "form-lite"
 
-export const app = ()=>{
+export const App = ()=>{
     return <Form onSubmit={(data)=>console.log(data)}>
         <Form.TextField label='First Name' required name='firstName' />
-        <Form.Button label='login' />
+        <Form.TextField label='Last Name' required name='lastName' />
+        <Form.Submit label='login' />
     </Form>
 }
+// console log:
+// {
+//     "firstName" : "",
+//     "lastName" : ""
+// }
 ```

@@ -6,7 +6,7 @@ import { Form } from '../.';
 export const App = ()=>{
   return <Form onSubmit={(data)=>console.log(data)}>
       <Form.TextField label='First Name' required name='firstName' />
-      <Form.Button label='login' />
+      <Form.Submit label='login' />
   </Form>
 }
 
