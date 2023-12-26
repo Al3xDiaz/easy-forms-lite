@@ -10,6 +10,8 @@ export const reducer = (state: Dictionary, action:IAction ):Dictionary => {
                 ...state,
                 [action.payload.name] : action.payload.value,
             };
+        case "SET_EMPTY":
+            return {}
         default:
             return state;
     }

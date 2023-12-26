@@ -8,6 +8,9 @@ interface ISetAction {
     payload: IState;
 }
 
+interface ISetActionEmpty{
+    type: "SET_EMPTY";
+}
 
-export type IAction = ISetAction;
+export type IAction = ISetAction | ISetActionEmpty;
 export default IAction;
