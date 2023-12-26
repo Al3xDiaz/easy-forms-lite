@@ -20,10 +20,10 @@ export const TextField:FC<Iprops> = (props) => {
         name,
         ...extraProps
     } = props;
-    const {state,getProp,setProp} = useFormContext();
+    const {state,setProp} = useFormContext();
     const [value,setValue] = useState<string>();
     useEffect(()=>{
-        setValue(getProp<string>(name))
+        setValue(state[name] && String(state[name]) || "")
     },[state,setValue])
     const spanText = `${required?"*":""}${props.label?label:props.name}`;
     return (
@@ -55,10 +55,10 @@ export const TextArea: FC<Iprops> = (props) => {
         name,
         ...extraProps
     } = props;
-    const {getProp,setProp,state} = useFormContext()
+    const {setProp,state} = useFormContext()
     const [value,setValue] = useState<string>();
     useEffect(()=>{
-        setValue(getProp<string>(name))
+        setValue(state[name] && String(state[name]) || "")
     },[state,setValue])
     return (
         <div className={className} style={style}>

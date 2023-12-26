@@ -21,10 +21,10 @@ export const PasswordField:FC<Iprops> = (props) => {
         ...extraProps
     } = props;
     const [showText,setShowText] = useState(false)
-    const {state,getProp,setProp} = useFormContext();
+    const {state,setProp} = useFormContext();
     const [value,setValue] = useState<string>();
     useEffect(()=>{
-        setValue(getProp<string>(name))
+        setValue(state[name] && String(state[name]) || "")
     },[state,setValue])
     const spanText = `${required?"*":""}${props.label?label:props.name}`;
     return (
