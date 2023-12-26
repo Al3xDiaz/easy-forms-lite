@@ -20,8 +20,7 @@ export const TextField:FC<Iprops> = (props) => {
         name,
         ...extraProps
     } = props;
-    const {setProp,state} = useFormContext();
-    const value:string =state[name] ? String(state[name]) : "";
+    const {getProp,setProp} = useFormContext();
     const spanText = `${required?"*":""}${props.label?label:props.name}`;
     return (
         <div className={className} style={style}>
@@ -31,7 +30,7 @@ export const TextField:FC<Iprops> = (props) => {
                         type="text"
                         className="input"
                         required={required}
-                        value={value}
+                        value={getProp<string>(name)}
                         onChange={e=>{setProp({name,value:e.target.value})}}
                         name={name}
                         {...extraProps}

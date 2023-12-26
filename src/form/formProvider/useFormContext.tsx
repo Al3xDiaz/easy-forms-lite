@@ -12,8 +12,18 @@ export const useSite = () => {
             payload,
         })
     },[state,dispatch])
+    const getProp= useCallback(function<T>(name:string){
+        let response: T;
+        try {
+            response = state[name] as T
+            return response;
+        } catch (error) {
+            return undefined;
+        }
+    },[state])
 
     return {
+        getProp,
         setProp,
         state,
     }}
