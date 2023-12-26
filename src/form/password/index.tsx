@@ -1,4 +1,4 @@
-import React,{ FC, useState } from 'react'
+import React,{ FC, useEffect, useState } from 'react'
 import {IInput} from ".."
 import useFormContext from "../formProvider/useFormContext";
 import { Container } from '../../stylesComponents';
@@ -21,7 +21,11 @@ export const PasswordField:FC<Iprops> = (props) => {
         ...extraProps
     } = props;
     const [showText,setShowText] = useState(false)
-    const {getProp,setProp} = useFormContext();
+    const {state,getProp,setProp} = useFormContext();
+    const [value,setValue] = useState<string>();
+    useEffect(()=>{
+        setValue(getProp<string>(name))
+    },[state,setValue])
     const spanText = `${required?"*":""}${props.label?label:props.name}`;
     return (
         <div className={className} style={style}>
@@ -30,7 +34,7 @@ export const PasswordField:FC<Iprops> = (props) => {
                     type={showText?"text":"password"}
                     className="input"
                     required={required}
-                    value={getProp<string>(name)}
+                    value={value}
                     onChange={e=>{setProp({name,value:e.target.value})}}
                     name={name}
                     {...extraProps}
