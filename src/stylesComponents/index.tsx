@@ -123,9 +123,9 @@ export const Label =styled.label`
     }
 `;
 export const Button = styled.button`
-    position: relative;
+& {
     appearance: button;
-    background-color: var(--secondary);
+    background-color: #1899D6;
     border: solid transparent;
     border-radius: 16px;
     border-width: 0 0 4px;
@@ -140,8 +140,8 @@ export const Button = styled.button`
     margin: 0;
     outline: none;
     overflow: visible;
+    padding: 13px 19px;
     text-align: center;
-    text-transform: uppercase;
     touch-action: manipulation;
     transform: translateZ(0);
     transition: filter .2s;
@@ -149,10 +149,12 @@ export const Button = styled.button`
     -webkit-user-select: none;
     vertical-align: middle;
     white-space: nowrap;
-
+    padding: .4rem;
+    width: 100%;
+}
 &:after {
     background-clip: padding-box;
-    background-color: var(--secondary);
+    background-color: #1899D6;
     border: solid transparent;
     border-radius: 16px;
     border-width: 0 0 4px;
