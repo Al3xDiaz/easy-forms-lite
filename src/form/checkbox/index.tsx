@@ -16,7 +16,7 @@ export const CheckBox:React.FC<Iprops> =(props)=>{
     const {state,setProp} = useFormContext();
     const [value,setValue] = useState(initialValue);
     useEffect(()=>{
-        setValue(!!state[name])
+        setValue(!!state[name] || value)
     },[state,setValue])
     return (
         <label {...extraProps} className="container">

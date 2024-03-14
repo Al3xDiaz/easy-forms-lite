@@ -20,7 +20,7 @@ export const TextField:FC<Iprops> = (props) => {
     const {state,setProp} = useFormContext();
     const [value,setValue] = useState(initialValue);
     useEffect(()=>{
-        setValue(state[name] && String(state[name]) || "")
+        setValue(state[name] && String(state[name]) || value)
     },[state,setValue])
     const spanText = `${required?"*":""}${props.label?label:props.name}`;
     return (
