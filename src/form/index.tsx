@@ -15,28 +15,21 @@ interface IForm{
     styles?:CSSProperties;
 }
 
-const FormState:FC<IForm> =  (props)=>{
-    const {initialValues={}} = props;
+const FormState:FC<IForm> =  ({children,className,initialValues,onSubmit,persistData,styles})=>{
     const [state,dispatch]= useReducer(reducer,initialValues);
-    return (
-        <context.Provider value={{state,dispatch}}>
-            <Form {...props} />
-       </context.Provider>
-    )
-}
-const Form:FC<IForm> = ({children,className,onSubmit,persistData,styles})=>{
-    const {state,dispatch} = useContext(context);
-    const HandleSubmit = useCallback(async (e:React.FormEvent<HTMLFormElement>)=>{
+    const HandleSubmit = async (e:React.FormEvent<HTMLFormElement>)=>{
         e.preventDefault();
         onSubmit && await onSubmit(state);
         if(!persistData){
             dispatch && dispatch({type:"SET_EMPTY"});
         }
-    },[])
+    }
     return (
-        <form aria-label="form" className={className} style={styles} onSubmit={HandleSubmit}>
-            <>{children}</>
-        </form>
+        <context.Provider value={{state,dispatch}}>
+            <form aria-label="form" className={className} style={styles} onSubmit={HandleSubmit}>
+                <>{children}</>
+            </form>
+       </context.Provider>
     )
 }
 
