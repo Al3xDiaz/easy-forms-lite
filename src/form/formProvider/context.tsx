@@ -2,7 +2,7 @@ import React  from "react";
 import IAction from "./reducer";
 
 export interface Dictionary{
-    [Key: string]: number | string | Date | boolean;
+    [Key: string]: any;
 }
 export interface IContextState{
     state: Dictionary;
