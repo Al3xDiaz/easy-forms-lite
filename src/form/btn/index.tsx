@@ -2,24 +2,14 @@ import React from "react";
 
 interface iProps{
     label: string;
+    className?:string;
     style?: React.CSSProperties;
 }
 
-export const Submit: React.FC<iProps> = ({label,style})=> {
+export const Submit: React.FC<iProps> = ({label,style,className=""})=> {
     return <button
+        className={`btn ${className}`}
         type="submit"
-        style={{
-            border:"none",
-            outline:"none",
-            backgroundColor:"royalblue",
-            padding: 10,
-            borderRadius:10,
-            color:"#fff",
-            fontSize:16,
-            transform: ".3s ease",
-            width:"100%",
-            alignSelf:"end",
-            ...style
-        }}
+        style={style}
     >{label}</button>
 }
