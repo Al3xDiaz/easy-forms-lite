@@ -1,4 +1,5 @@
 import React from "react";
+import { Button, Label } from "../../stylesComponents";
 
 interface iProps{
     label: string;
@@ -6,10 +7,11 @@ interface iProps{
     style?: React.CSSProperties;
 }
 
-export const Submit: React.FC<iProps> = ({label,style,className=""})=> {
-    return <button
-        className={`btn ${className}`}
+export const Submit: React.FC<iProps> = ({label,...extraProps})=> {
+    return <Label {...extraProps}>
+        <Button
+        className={`btn`}
         type="submit"
-        style={style}
-    >{label}</button>
+    >{label}</Button>
+    </Label>
 }

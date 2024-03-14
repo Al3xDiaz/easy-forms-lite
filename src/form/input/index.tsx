@@ -1,7 +1,7 @@
 import React,{ FC, useEffect, useState } from 'react'
 import {IInput} from "../"
 import useFormContext from '../formProvider/useFormContext';
-import { Container } from '../../stylesComponents';
+import { Label } from '../../stylesComponents';
 
 interface Iprops extends IInput {
     initialValue?:string;
@@ -11,8 +11,6 @@ export const TextField:FC<Iprops> = (props) => {
     const {
         label="textfield",
         required,
-        style,
-        className,
         name,
         initialValue,
         ...extraProps
@@ -24,22 +22,18 @@ export const TextField:FC<Iprops> = (props) => {
     },[state,setValue])
     const spanText = `${required?"*":""}${props.label?label:props.name}`;
     return (
-        <div className={className} style={style}>
-            <>
-                <Container>
-                    <input
-                        type="text"
-                        className="input"
-                        required={required}
-                        value={value}
-                        onChange={e=>{setProp({name,value:e.target.value})}}
-                        name={name}
-                        {...extraProps}
-                    />
-                    <span>{spanText}</span>
-                </Container>
-            </>
-        </div>
+        <Label {...extraProps}>
+            <input
+                type="text"
+                className="input"
+                required={required}
+                value={value}
+                onChange={e=>{setProp({name,value:e.target.value})}}
+                name={name}
+                {...extraProps}
+            />
+            <span>{spanText}</span>
+        </Label>
     )
 }
 
@@ -47,8 +41,6 @@ export const TextArea: FC<Iprops> = (props) => {
     const {
         label="textfield",
         required,
-        style,
-        className,
         name,
         initialValue,
         ...extraProps
@@ -59,18 +51,16 @@ export const TextArea: FC<Iprops> = (props) => {
         setValue(state[name] && String(state[name]) || "")
     },[state,setValue])
     return (
-        <div className={className} style={style}>
-            <Container>
-                <textarea
-                    className="textarea"
-                    required={required}
-                    value={value}
-                    onChange={e=>{setProp({name,value:e.target.value})}}
-                    name={name}
-                    {...extraProps}
-                />
-                <span>{required?"*":""}{props.label?label:props.name}</span>
-            </Container>
-        </div>
+        <Label {...extraProps}>
+            <textarea
+                className="textarea"
+                required={required}
+                value={value}
+                onChange={e=>{setProp({name,value:e.target.value})}}
+                name={name}
+                {...extraProps}
+            />
+            <span>{required?"*":""}{props.label?label:props.name}</span>
+        </Label>
     )
 }
