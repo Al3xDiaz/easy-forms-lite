@@ -13,11 +13,11 @@ it('create form with initial props', () => {
     expect(state).toEqual(data)
   }
   const component = renderer.create(
-    <Form initialValues={state} onSubmit={HandleSubmit}>
-      <Form.TextField name='username' />
-      <Form.PasswordField name='password' />
-      <Form.TextArea name='description' />
-      <Form.TextArea name='description' />
+    <Form onSubmit={HandleSubmit}>
+      <Form.TextField name='username' initialValue={state.username} />
+      <Form.PasswordField name='password' initialValue={state.password} />
+      <Form.TextArea name='description' initialValue={state.description} />
+      <Form.CheckBox name='isStaff' initialValue={true} />
       <Form.Submit label='submit' />
     </Form>
   );
@@ -33,13 +33,13 @@ test('create form with initial props',()=>{
   }
   const onSubmit = jest.fn();
   const { getByRole } = render(
-      <Form initialValues={initState} onSubmit={onSubmit}>
-        <Form.TextField name='username' />
-        <Form.PasswordField name='password' />
-        <Form.TextArea name='description' />
-        <Form.TextArea name='description' />
-        <Form.Submit label='submit' />
-      </Form>
+    <Form onSubmit={onSubmit}>
+      <Form.TextField name='username' initialValue={initState.username} />
+      <Form.PasswordField name='password' initialValue={initState.password} />
+      <Form.TextArea name='description' initialValue={initState.description} />
+      <Form.CheckBox name='isStaff' initialValue={true} />
+      <Form.Submit label='submit' />
+    </Form>
   )
   act(()=>{
     fireEvent.submit(getByRole("form"));

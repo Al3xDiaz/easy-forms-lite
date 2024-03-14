@@ -1,7 +1,7 @@
-import React,{useState,useEffect} from "react";
+import React from "react";
 import { IInput } from "..";
-import useFormContext from "../formProvider/useFormContext";
 import { Label } from "../../stylesComponents";
+import { useForm } from "../hooks";
 
 interface Iprops extends IInput {
     initialValue?: boolean;
@@ -14,11 +14,7 @@ export const CheckBox:React.FC<Iprops> =(props)=>{
         initialValue,
         ...extraProps
     } = props;
-    const {state,setProp} = useFormContext();
-    const [value,setValue] = useState(initialValue);
-    useEffect(()=>{
-        setValue(!!state[name] || value)
-    },[state,setValue])
+    const {value,setProp} = useForm<boolean>({name,value:!!initialValue});
     return (
         <Label {...extraProps}>
             <input checked={value} type="checkbox" onChange={e=>{setProp({name,value:e.target.checked})}}/>

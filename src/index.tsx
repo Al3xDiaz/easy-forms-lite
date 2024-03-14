@@ -1,16 +1,17 @@
 import form from "./form";
-import {TextArea,TextField} from "./form/input";
-import {PasswordField} from "./form/password";
-import {CheckBox} from "./form/checkbox"
-import {Submit} from "./form/btn";
+import { TextArea, TextField } from "./form/input";
+import { PasswordField } from "./form/password";
+import { CheckBox } from "./form/checkbox";
+import { Submit } from "./form/btn";
+
 
 type IForm = typeof form;
 export interface Iprops extends IForm{
-    TextField:typeof TextField ;
-    TextArea:typeof TextArea ;
-    PasswordField:typeof PasswordField ;
+    TextField:typeof TextField;
+    TextArea:typeof TextArea;
+    PasswordField:typeof PasswordField;
     CheckBox: typeof CheckBox;
-    Submit:typeof Submit ;
+    Submit:typeof Submit;
 }
 
 export const Form:Iprops = Object.assign(form,{

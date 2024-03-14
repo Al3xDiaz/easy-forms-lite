@@ -1,7 +1,7 @@
-import React,{ FC, useEffect, useState } from 'react'
+import React,{ FC } from 'react'
 import {IInput} from "../"
-import useFormContext from '../formProvider/useFormContext';
 import { Label } from '../../stylesComponents';
+import { useForm } from '../hooks';
 
 interface Iprops extends IInput {
     initialValue?:string;
@@ -12,14 +12,10 @@ export const TextField:FC<Iprops> = (props) => {
         label="textfield",
         required,
         name,
-        initialValue,
+        initialValue="",
         ...extraProps
     } = props;
-    const {state,setProp} = useFormContext();
-    const [value,setValue] = useState(initialValue);
-    useEffect(()=>{
-        setValue(state[name] && String(state[name]) || value)
-    },[state,setValue])
+    const {value,setProp} = useForm<string>({name,value:initialValue});
     const spanText = `${required?"*":""}${props.label?label:props.name}`;
     return (
         <Label {...extraProps}>
@@ -42,14 +38,10 @@ export const TextArea: FC<Iprops> = (props) => {
         label="textfield",
         required,
         name,
-        initialValue,
+        initialValue="",
         ...extraProps
     } = props;
-    const {setProp,state} = useFormContext()
-    const [value,setValue] = useState(initialValue);
-    useEffect(()=>{
-        setValue(state[name] && String(state[name]) || "")
-    },[state,setValue])
+    const {value,setProp} = useForm<string>({name,value:initialValue});
     return (
         <Label {...extraProps}>
             <textarea

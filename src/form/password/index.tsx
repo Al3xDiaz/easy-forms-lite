@@ -1,7 +1,7 @@
-import React,{ FC, useEffect, useState } from 'react'
-import {IInput} from ".."
-import useFormContext from "../formProvider/useFormContext";
+import React,{ FC, useState } from 'react'
+import {IInput} from "..";
 import { Label } from '../../stylesComponents';
+import { useForm } from '../hooks';
 
 interface Iprops extends IInput {
 }
@@ -14,11 +14,7 @@ export const PasswordField:FC<Iprops> = (props) => {
         ...extraProps
     } = props;
     const [showText,setShowText] = useState(false)
-    const {state,setProp} = useFormContext();
-    const [value,setValue] = useState<string>();
-    useEffect(()=>{
-        setValue(state[name] && String(state[name]) || "")
-    },[state,setValue])
+    const {value,setProp} = useForm<string>({name,value:""});
     const spanText = `${required?"*":""}${props.label?label:props.name}`;
     return (
         <Label {...extraProps}>
