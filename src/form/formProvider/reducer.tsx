@@ -1,6 +1,6 @@
 export interface IState {
     name: string;
-    value: string | number | Date ;
+    value: string | number | Date | boolean;
 }
 
 interface ISetAction {

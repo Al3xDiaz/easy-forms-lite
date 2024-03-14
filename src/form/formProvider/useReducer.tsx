@@ -1,6 +1,6 @@
 import { IAction } from "./reducer";
 interface Dictionary{
-    [Key: string]: number | string | Date;
+    [Key: string]: number | string | Date | boolean;
 }
 
 export const reducer = (state: Dictionary, action:IAction ):Dictionary => {
