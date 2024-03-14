@@ -16,7 +16,7 @@ interface IForm{
 }
 
 const FormState:FC<IForm> =  (props)=>{
-    const {initialValues} = props;
+    const {initialValues={}} = props;
     const [state,dispatch]= useReducer(reducer,initialValues);
     return (
         <context.Provider value={{state,dispatch}}>
