@@ -4,11 +4,6 @@ import useFormContext from "../formProvider/useFormContext";
 import { Container } from '../../stylesComponents';
 
 interface Iprops extends IInput {
-    label?:string,
-    required?:boolean,
-    placeholder?:string,
-    style?:React.StyleHTMLAttributes<HTMLStyleElement>,
-    className?:string,
 }
 
 export const PasswordField:FC<Iprops> = (props) => {

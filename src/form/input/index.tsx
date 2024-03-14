@@ -4,11 +4,7 @@ import useFormContext from '../formProvider/useFormContext';
 import { Container } from '../../stylesComponents';
 
 interface Iprops extends IInput {
-    label?:string,
-    required?:boolean,
-    placeholder?:string,
-    style?:React.StyleHTMLAttributes<HTMLStyleElement>,
-    className?:string,
+    initialValue?:string;
 }
 
 export const TextField:FC<Iprops> = (props) => {
@@ -18,10 +14,11 @@ export const TextField:FC<Iprops> = (props) => {
         style,
         className,
         name,
+        initialValue,
         ...extraProps
     } = props;
     const {state,setProp} = useFormContext();
-    const [value,setValue] = useState<string>();
+    const [value,setValue] = useState(initialValue);
     useEffect(()=>{
         setValue(state[name] && String(state[name]) || "")
     },[state,setValue])
@@ -53,10 +50,11 @@ export const TextArea: FC<Iprops> = (props) => {
         style,
         className,
         name,
+        initialValue,
         ...extraProps
     } = props;
     const {setProp,state} = useFormContext()
-    const [value,setValue] = useState<string>();
+    const [value,setValue] = useState(initialValue);
     useEffect(()=>{
         setValue(state[name] && String(state[name]) || "")
     },[state,setValue])
