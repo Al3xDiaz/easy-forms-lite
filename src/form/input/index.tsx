@@ -18,7 +18,7 @@ export const TextField:FC<Iprops> = (props) => {
     const {value,setProp} = useForm<string>({name,value:initialValue});
     const spanText = `${required?"*":""}${props.label?label:props.name}`;
     return (
-        <Label id={name} {...extraProps}>
+        <Label $name={name} {...extraProps}>
             <input
                 type="text"
                 className="input"
@@ -43,7 +43,7 @@ export const TextArea: FC<Iprops> = (props) => {
     } = props;
     const {value,setProp} = useForm<string>({name,value:initialValue});
     return (
-        <Label id={name} {...extraProps}>
+        <Label $name={name} {...extraProps}>
             <textarea
                 className="textarea"
                 required={required}

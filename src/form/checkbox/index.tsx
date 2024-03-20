@@ -16,7 +16,7 @@ export const CheckBox:React.FC<Iprops> =(props)=>{
     } = props;
     const {value,setProp} = useForm<boolean>({name,value:!!initialValue});
     return (
-        <Label {...extraProps} id={name}>
+        <Label {...extraProps} $name={name}>
             <input checked={value} type="checkbox" onChange={e=>{setProp({name,value:e.target.checked})}}/>
             <div className="checkmark"></div>
         </Label>

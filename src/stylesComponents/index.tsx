@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-export const Label =styled.label`
-    grid-area: ${({id})=>id};
+export const Label =styled.label<{$name:string}>`
+    grid-area: "${props=>props.$name}";
     position: relative;
     display: flex;
     background-color: #ffffff00;

@@ -5,11 +5,11 @@ interface iProps{
     label: string;
     className?:string;
     style?: React.CSSProperties;
-    name?:string;
+    name:string;
 }
 
 export const Submit: React.FC<iProps> = ({label,name,...extraProps})=> {
-    return <Label {...extraProps} id={name}>
+    return <Label $name={name} {...extraProps}>
         <Button
         name={name}
         className={`btn`}
