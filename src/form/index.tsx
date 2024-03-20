@@ -1,5 +1,5 @@
 import React, { CSSProperties, FC, useReducer,} from "react";
-import {context} from "../context"
+import {context,IState} from "../context"
 import { reducer } from "../hooks";
 
 export interface IInput{
@@ -14,7 +14,7 @@ export interface IInput{
 
 interface IForm{
     children?: React.JSX.Element | Array<React.JSX.Element>;
-    onSubmit? : (data:any)=>Promise<void>;
+    onSubmit? : (data:IState)=>Promise<void>;
     persistData?: boolean;
     className?: string;
     styles?:CSSProperties;
