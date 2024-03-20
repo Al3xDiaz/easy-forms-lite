@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Label =styled.label`
+    grid-area: ${({id})=>id};
     position: relative;
     display: flex;
     background-color: #ffffff00;

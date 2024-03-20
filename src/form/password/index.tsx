@@ -17,7 +17,7 @@ export const PasswordField:FC<Iprops> = (props) => {
     const {value,setProp} = useForm<string>({name,value:""});
     const spanText = `${required?"*":""}${props.label?label:props.name}`;
     return (
-        <Label {...extraProps}>
+        <Label id={name} {...extraProps}>
             <input
                 type={showText?"text":"password"}
                 className="input"

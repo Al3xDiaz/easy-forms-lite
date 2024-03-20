@@ -5,11 +5,13 @@ interface iProps{
     label: string;
     className?:string;
     style?: React.CSSProperties;
+    name?:string;
 }
 
-export const Submit: React.FC<iProps> = ({label,...extraProps})=> {
-    return <Label {...extraProps}>
+export const Submit: React.FC<iProps> = ({label,name,...extraProps})=> {
+    return <Label {...extraProps} id={name}>
         <Button
+        name={name}
         className={`btn`}
         type="submit"
     >{label}</Button>

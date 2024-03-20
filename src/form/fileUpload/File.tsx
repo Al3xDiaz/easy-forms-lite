@@ -20,7 +20,7 @@ export const FileGeneric:React.FC<IPropsGeneric>=({name,style,multiple})=>{
     !!target.files && appendData({name,value:target.files});
   }
   return (
-    <Label style={style}>
+    <Label style={style} id={name}>
       <div className="icon">
       <svg viewBox="0 0 24 24" fill="" xmlns="http://www.w3.org/2000/svg">
         <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
@@ -58,7 +58,7 @@ export const FileImage:React.FC<IPropsImage>=({name,type="dataUrl",style,initial
     }
   }
   return (
-    <Label style={{...style,backgroundImage:`url(${value})`}}>
+    <Label style={{...style,backgroundImage:`url(${value})`}} id={name}>
       <div className="icon" style={{display:!!value?"none":"initial"}} >
         <svg
         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path fill="currentColor" d="M11.93 11a3 3 0 1 0-3 3a3 3 0 0 0 3-3m-4.6 0a1.6 1.6 0 1 1 1.6 1.6a1.6 1.6 0 0 1-1.6-1.6" className="clr-i-outline--badged clr-i-outline-path-1--badged"/>
