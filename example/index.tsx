@@ -1,11 +1,13 @@
 import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { Form } from '../.';
+import { Form } from '../src';
 
 export const App = ()=>{
-  return <Form onSubmit={(data)=>console.log(data)}>
+  return <Form onSubmit={async(data)=>console.log(data)}>
       <Form.TextField label='First Name' required name='firstName' />
+      <Form.FileGeneric name="resume" />
+
       <Form.Submit label='login' />
   </Form>
 }

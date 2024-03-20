@@ -125,7 +125,7 @@ export const Label =styled.label`
 export const Button = styled.button`
 & {
     appearance: button;
-    background-color: #1899D6;
+    background-color: var(--primary--bg,#189ad6);
     border: solid transparent;
     border-radius: 16px;
     border-width: 0 0 4px;
@@ -153,7 +153,7 @@ export const Button = styled.button`
 }
 &:after {
     background-clip: padding-box;
-    background-color: #1CB0F6;
+    background-color: var(--primary,#1CB0F6);
     border: solid transparent;
     border-radius: 16px;
     border-width: 0 0 4px;
@@ -185,4 +185,4 @@ export const Button = styled.button`
 &:active {
     padding-bottom: .3rem;
 }
-`
+`;

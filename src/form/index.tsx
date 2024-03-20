@@ -1,6 +1,6 @@
 import React, { CSSProperties, FC, useReducer,} from "react";
-import context from "./formProvider/context"
-import { reducer } from "./formProvider/useReducer";
+import {context} from "../context"
+import { reducer } from "../hooks";
 
 export interface IInput{
     name: string;
@@ -21,7 +21,7 @@ interface IForm{
 }
 
 const FormState:FC<IForm> =  ({children,className,onSubmit,persistData,styles})=>{
-    const [state,dispatch]= useReducer(reducer,{});
+    const [state,dispatch]= useReducer(reducer,{data:{},formData:new FormData()});
     const HandleSubmit = async (e:React.FormEvent<HTMLFormElement>)=>{
         e.preventDefault();
         onSubmit && await onSubmit(state);
