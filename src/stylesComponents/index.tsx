@@ -53,7 +53,7 @@ export const Button = styled.button`
     appearance: button;
     background-color: var(--primary--bg,#189ad6);
     border: solid transparent;
-    border-radius: 16px;
+    border-radius: 10px;
     border-width: 0 0 4px;
     box-sizing: border-box;
     color: #FFFFFF;

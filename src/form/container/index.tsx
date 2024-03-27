@@ -1,16 +1,25 @@
-import React, { CSSProperties, useState } from "react";
+import React, { CSSProperties, useEffect, useState } from "react";
 import styled from "styled-components";
 import { ArrowDown } from "../../components"
 
 interface IProps {
+  id: string;
   style?:CSSProperties;
   label?:string;
-  children?: JSX.Element | JSX.Element[]
-
+  children?: JSX.Element | JSX.Element[];
 }
 
-export const Container:React.FC<IProps>=({style,label="label",children})=>{
+export const Container:React.FC<IProps>=({id,style,label="label",children})=>{
   const [open,setOpen] =useState(false);
+  useEffect(()=>{
+    const item =localStorage.getItem(id);
+    setOpen(!!item);
+  },[setOpen])
+  useEffect(()=>{
+    if (!open) return;
+    const item = JSON.stringify(open);
+    localStorage.setItem(id,item);
+  },[open])
   return (
     <Paper style={style}>
       <div className="head">
