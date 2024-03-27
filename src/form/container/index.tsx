@@ -18,7 +18,7 @@ export const Container:React.FC<IProps>=({style,label="label",children})=>{
         <span onClick={()=>{setOpen(!open)}}><ArrowDown style={{transform:open?"rotate(180deg)":""}} /></span>
       </div>
       {open&&<div>
-        {children}hello
+        {children}
       </div>}
     </Paper>
   )

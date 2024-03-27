@@ -5,23 +5,26 @@ export const Label =styled.label<{$name:string}>`
     position: relative;
     display: flex;
     background-color: #ffffff00;
+    border: 1px solid var(--primary,#1CB0F6);
+    border-radius: 10px;
+    width: 100%;
 
     & .input {
         background-color: #fff;
         width: 100%;
         padding: 1rem;
-        margin: .5rem;
+        /* margin: .5rem; */
         outline: 0;
-        border: 1px solid rgba(105, 105, 105, 0.397);
-        border-radius: 10px;
+        border: none;
     }
-    & .input + span {
+    & input + span {
         position: absolute;
         background-color: #fff;
         border-radius: 1rem;
         padding: .1rem;
         left: 1rem;
-        top: 1.5rem;
+        /* top: 1.7rem; */
+        bottom: -.5rem;
         color: grey;
         font-size: 0.9em;
         cursor: text;
@@ -89,7 +92,6 @@ export const Label =styled.label<{$name:string}>`
         padding: 1rem;
         margin: .5rem;
         outline: 0;
-        border: 1px solid rgba(105, 105, 105, 0.397);
         border-radius: 10px;
     }
 
@@ -122,6 +124,9 @@ export const Label =styled.label<{$name:string}>`
     &.invalid .textarea:invalid + span {
         color: red;
     }
+    /* & textarea{
+        field-sizing: content;
+    } */
 `;
 export const Button = styled.button`
 & {

@@ -1,1 +1,1 @@
-export * from './Arrrow'
+export * from './Arrrow';
