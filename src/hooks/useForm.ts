@@ -1,6 +1,6 @@
 import { useCallback, useContext, useEffect } from "react"
-import context from "../../context/context"
-import { IState } from "../../context/reducer";
+import context from "../context/context"
+import { IState } from "../context/reducer";
 
 interface Response<T>{
     setProp(payload: IState): void;
@@ -38,5 +38,13 @@ export function useForm<T>(payload:IState):Response<T>{
     return {
         setProp,
         value:state.data[payload.name] as T,
+    }
+}
+
+export function useData(){
+    const {state} = useContext(context);
+
+    return {
+        state
     }
 }

@@ -1,6 +1,6 @@
 import React, { CSSProperties } from "react";
 import styled from "styled-components";
-import { useForm, useFormData } from "../hooks";
+import { useForm, useFormData } from "../../hooks";
 
 interface IPropsImage{
   name:string;

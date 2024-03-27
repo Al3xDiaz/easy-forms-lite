@@ -1,7 +1,7 @@
 import React,{ FC } from 'react'
 import {IInput} from "../"
 import { Label } from '../../stylesComponents';
-import { useForm } from '../hooks';
+import { useForm } from '../../hooks';
 
 interface Iprops extends IInput {
     initialValue?:string;
@@ -25,6 +25,7 @@ export const TextField:FC<Iprops> = (props) => {
                 required={required}
                 value={value}
                 onChange={e=>{setProp({name,value:e.target.value})}}
+                onBlur={()=>setProp({name,value: value.trim()})}
                 name={name}
                 {...extraProps}
             />
@@ -49,6 +50,7 @@ export const TextArea: FC<Iprops> = (props) => {
                 required={required}
                 value={value}
                 onChange={e=>{setProp({name,value:e.target.value})}}
+                onBlur={()=>setProp({name,value: value.trim()})}
                 name={name}
                 {...extraProps}
             />

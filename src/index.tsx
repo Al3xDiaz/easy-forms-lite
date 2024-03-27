@@ -33,4 +33,5 @@ export const Form:Iprops = Object.assign(form,{
     Submit,
 });
 
+export {useData} from "./hooks"
 export default Form;

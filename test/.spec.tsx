@@ -18,7 +18,7 @@ it('create form with initial props', () => {
       <Form.PasswordField name='password' initialValue={state.password} />
       <Form.TextArea name='description' initialValue={state.description} />
       <Form.CheckBox name='isStaff' initialValue={true} />
-      <Form.Submit label='submit' />
+      <Form.Submit name='submit' label='submit' />
     </Form>
   );
   let tree = component.toJSON();
@@ -38,7 +38,7 @@ test('create form with initial props',()=>{
       <Form.PasswordField name='password' initialValue={initState.password} />
       <Form.TextArea name='description' initialValue={initState.description} />
       <Form.CheckBox name='isStaff' initialValue={true} />
-      <Form.Submit label='submit' />
+      <Form.Submit name='submit' label='submit' />
     </Form>
   )
   act(()=>{

@@ -1,7 +1,7 @@
 import React from "react";
 import { IInput } from "..";
 import { Label } from "../../stylesComponents";
-import { useForm } from "../hooks";
+import { useForm } from "../../hooks";
 
 interface Iprops extends IInput {
     initialValue?: boolean;

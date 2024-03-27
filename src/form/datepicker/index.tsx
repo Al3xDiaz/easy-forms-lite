@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { Label } from "../../stylesComponents";
 import { IInput } from "..";
-import { useForm } from "../hooks";
+import { useForm } from "../../hooks";
 import styled from "styled-components";
 interface IProps extends IInput{
   initialValue?:Date;
