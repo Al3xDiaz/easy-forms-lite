@@ -14,7 +14,7 @@ export const PasswordField:FC<Iprops> = (props) => {
         ...extraProps
     } = props;
     const [showText,setShowText] = useState(false)
-    const {value,setProp} = useForm<string>({name,value:""});
+    const {value,setProp} = useForm<string>(name);
     const spanText = `${required?"*":""}${props.label?label:props.name}`;
     return (
         <Label $name={name} {...extraProps}>
@@ -22,7 +22,7 @@ export const PasswordField:FC<Iprops> = (props) => {
                 type={showText?"text":"password"}
                 className="input"
                 required={required}
-                value={value}
+                value={value||""}
                 onChange={e=>{setProp({name,value:e.target.value})}}
                 name={name}
                 {...extraProps}

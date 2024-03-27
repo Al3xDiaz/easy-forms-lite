@@ -1,5 +1,5 @@
 import React, { CSSProperties, FC, useReducer,} from "react";
-import {context,IContextState,reducer} from "../context";
+import {context,Dictionary,reducer} from "../context";
 
 export interface IInput{
     name: string;
@@ -8,22 +8,23 @@ export interface IInput{
     placeholder?:string,
     style?:React.StyleHTMLAttributes<HTMLStyleElement>,
     className?:string,
-    initialValue?: string | number | boolean | Date;
 }
+type IPersitData ={persistData?: false;} | {persistData: true}
 
 interface IForm{
     children?: React.JSX.Element | Array<React.JSX.Element>;
-    onSubmit? : (data:IContextState)=>Promise<void>;
-    persistData?: boolean;
+    onSubmit? : (data:Dictionary,formData:FormData)=>(Promise<void> | void);
     className?: string;
     styles?:CSSProperties;
+    initialState: Dictionary;
 }
+type IFormProps = IForm & IPersitData
 
-const FormState:FC<IForm> =  ({children,className,onSubmit,persistData,styles})=>{
-    const [state,dispatch]= useReducer(reducer,{data:{},formData:new FormData()});
+const FormState:FC<IFormProps> =  ({initialState,children,className,onSubmit,persistData,styles})=>{
+    const [state,dispatch]= useReducer(reducer,{data:initialState,formData:new FormData()});
     const HandleSubmit = async (e:React.FormEvent<HTMLFormElement>)=>{
         e.preventDefault();
-        onSubmit && await onSubmit(state);
+        onSubmit && await onSubmit(state.data,state.formData);
         if(!persistData){
             dispatch && dispatch({type:"SET_EMPTY"});
         }
@@ -36,5 +37,6 @@ const FormState:FC<IForm> =  ({children,className,onSubmit,persistData,styles})=
        </context.Provider>
     )
 }
+
 
 export default FormState;

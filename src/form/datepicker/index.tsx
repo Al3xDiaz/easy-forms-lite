@@ -4,10 +4,9 @@ import { IInput } from "..";
 import { useForm } from "../../hooks";
 import styled from "styled-components";
 interface IProps extends IInput{
-  initialValue?:Date;
 }
-export const DatePicker:React.FC<IProps> = ({name,label,required,initialValue=new Date()})=>{
-  const {value,setProp} = useForm<Date>({name,value:initialValue});
+export const DatePicker:React.FC<IProps> = ({name,label,required,})=>{
+  const {value,setProp} = useForm<Date>(name);
   const handleOnChange =useCallback<React.ChangeEventHandler<HTMLInputElement>>(({target})=>{
     if (!target.valueAsDate) return;
     const day = target.valueAsDate.getUTCDate();

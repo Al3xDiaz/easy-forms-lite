@@ -1,10 +1,10 @@
-import { useCallback, useContext, useEffect } from "react"
+import { useCallback, useContext} from "react"
 import context from "../context/context"
 import { IState } from "../context/reducer";
 
 interface Response<T>{
     setProp(payload: IState): void;
-    value:T;
+    value:T|undefined;
 }
 
 export function useFormData(name:string){
@@ -22,7 +22,7 @@ export function useFormData(name:string){
         appendData,
     }
 }
-export function useForm<T>(payload:IState):Response<T>{
+export function useForm<T>(name:string):Response<T>{
     const {state,dispatch} = useContext(context);
 
     const setProp= useCallback((payload:IState)=>{
@@ -31,13 +31,10 @@ export function useForm<T>(payload:IState):Response<T>{
             payload,
         })
     },[dispatch])
-    useEffect(()=>{
-        setProp(payload)
-    },[])
 
     return {
         setProp,
-        value:state.data[payload.name] as T,
+        value:state.data[name] as T,
     }
 }
 

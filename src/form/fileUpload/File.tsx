@@ -6,7 +6,6 @@ interface IPropsImage{
   name:string;
   style?: CSSProperties;
   type:"file"|"dataUrl";
-  initialValue?:string;
 }
 interface IPropsGeneric{
   name:string;
@@ -36,9 +35,9 @@ export const FileGeneric:React.FC<IPropsGeneric>=({name,style,multiple})=>{
     </Label>
   )
 }
-export const FileImage:React.FC<IPropsImage>=({name,type="dataUrl",style,initialValue=""})=>{
+export const FileImage:React.FC<IPropsImage>=({name,type="dataUrl",style})=>{
   const {appendData,} = useFormData(name);
-  const {setProp,value} = useForm<string>({name,value:initialValue});
+  const {setProp,value} = useForm<string>(name);
   const handleOnChange:React.ChangeEventHandler<HTMLInputElement> =({target,})=>{
     if (!target.files) return;
     switch (type) {

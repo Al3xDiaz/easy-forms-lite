@@ -4,17 +4,15 @@ import { Label } from "../../stylesComponents";
 import { useForm } from "../../hooks";
 
 interface Iprops extends IInput {
-    initialValue?: boolean;
 }
 
 export const CheckBox:React.FC<Iprops> =(props)=>{
     const {
         label,
         name,
-        initialValue,
         ...extraProps
     } = props;
-    const {value,setProp} = useForm<boolean>({name,value:!!initialValue});
+    const {value,setProp} = useForm<boolean>(name);
     return (
         <Label {...extraProps} $name={name}>
             <input checked={value} type="checkbox" onChange={e=>{setProp({name,value:e.target.checked})}}/>

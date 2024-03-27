@@ -81,7 +81,7 @@ export const Button = styled.button`
     background-clip: padding-box;
     background-color: var(--primary,#1CB0F6);
     border: solid transparent;
-    border-radius: 16px;
+    border-radius: 10px;
     border-width: 0 0 4px;
     bottom: -4px;
     content: "";

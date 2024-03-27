@@ -4,7 +4,6 @@ import { Label } from '../../stylesComponents';
 import { useForm } from '../../hooks';
 
 interface Iprops extends IInput {
-    initialValue?:string;
 }
 
 export const TextField:FC<Iprops> = (props) => {
@@ -12,10 +11,9 @@ export const TextField:FC<Iprops> = (props) => {
         label="textfield",
         required,
         name,
-        initialValue="",
         ...extraProps
     } = props;
-    const {value,setProp} = useForm<string>({name,value:initialValue});
+    const {value,setProp} = useForm<string>(name);
     const spanText = `${required?"*":""}${props.label?label:props.name}`;
     return (
         <Label $name={name} {...extraProps}>
@@ -23,9 +21,9 @@ export const TextField:FC<Iprops> = (props) => {
                 type="text"
                 className="input"
                 required={required}
-                value={value}
+                value={value||""}
                 onChange={e=>{setProp({name,value:e.target.value})}}
-                onBlur={()=>setProp({name,value: value.trim()})}
+                onBlur={()=>setProp({name,value: value?.trim()})}
                 name={name}
                 {...extraProps}
             />
@@ -39,18 +37,17 @@ export const TextArea: FC<Iprops> = (props) => {
         label="textfield",
         required,
         name,
-        initialValue="",
         ...extraProps
     } = props;
-    const {value,setProp} = useForm<string>({name,value:initialValue});
+    const {value,setProp} = useForm<string>(name);
     return (
         <Label $name={name} {...extraProps}>
             <textarea
                 className="textarea"
                 required={required}
-                value={value}
+                value={value||""}
                 onChange={e=>{setProp({name,value:e.target.value})}}
-                onBlur={()=>setProp({name,value: value.trim()})}
+                onBlur={()=>setProp({name,value: value?.trim()})}
                 name={name}
                 {...extraProps}
             />
