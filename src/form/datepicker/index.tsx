@@ -1,9 +1,8 @@
 import React, { useCallback } from "react";
 import { Label } from "../../stylesComponents";
-import Form, { IInput } from "..";
+import { IInput } from "..";
 import { useForm } from "../hooks";
 import styled from "styled-components";
-import { TextArea, TextField } from "../input";
 interface IProps extends IInput{
   initialValue?:Date;
 }
@@ -18,20 +17,10 @@ export const DatePicker:React.FC<IProps> = ({name,label,required,initialValue=ne
     setProp({name,value:date})
   },[setProp])
   const spanText = `${required?"*":""}${label?label:name}`;
-  console.log(value?.toLocaleDateString("es-US"))
   return <Label $name={name}>
     <InputDate type="date"  $value={value?.toLocaleDateString("es-US")} onChange={handleOnChange} />
     <span>{spanText}</span>
   </Label>
-}
-export const papu =()=>{
-  return (
-    <Form styles={{display:"grid",gridTemplateAreas:'"fecha texto" "texto2 texto2"'}}  onSubmit={async(data)=>console.log(data)}>
-      <DatePicker required name="fecha" />
-      <TextField required name="texto" />
-      <TextArea name="texto2" />
-    </Form>
-  )
 }
 const InputDate= styled.input<{$value?:string}>`
   cursor: pointer;

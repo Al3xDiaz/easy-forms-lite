@@ -9,124 +9,44 @@ export const Label =styled.label<{$name:string}>`
     border-radius: 10px;
     width: 100%;
 
-    & .input {
+    & input, & textarea {
+        border-radius: 10px;
+        border: none;
+        padding:1rem;
+        margin: 0;
         background-color: #fff;
         width: 100%;
         padding: 1rem;
-        /* margin: .5rem; */
         outline: 0;
         border: none;
     }
-    & input + span {
+    & input + span, & textarea + span {
         position: absolute;
         background-color: #fff;
         border-radius: 1rem;
         padding: .1rem;
         left: 1rem;
-        /* top: 1.7rem; */
-        bottom: -.5rem;
+        bottom: 25%;
         color: grey;
         font-size: 0.9em;
         cursor: text;
         transition: 0.3s ease;
     }
-    & .input + span + span {
-        position: absolute;
-        background-color: #fff;
-        border-radius: 1rem;
-        padding: .1rem;
-        right: 1rem;
-        top: 1.5rem;
-        color: grey;
-        font-size: 0.9em;
-        cursor: pointer;
-        transition: 0.3s ease;
-    }
-    & .input:placeholder-shown + span {
+    /* & input:placeholder-shown + span, & textarea:placeholder-shown + span {
         top: 1.5rem;
         font-size: 0.9em;
-    }
-    & .input:focus + span, & .input:valid + span {
-        top: 3rem;
-        font-size: 0.7em;
-        font-weight: 600;
-    }
-    & .input:valid + span {
-        color: green;
-    }
-    &.invalid .input:invalid + span {
-        color: red;
-    }
-
-
-    & .input + span {
-        position: absolute;
-        background-color: #fff;
-        border-radius: 1rem;
-        padding: .1rem;
-        left: 1rem;
-        top: 1.5rem;
-        color: grey;
-        font-size: 0.9em;
-        cursor: text;
-        transition: 0.3s ease;
-    }
-
-    & .input:placeholder-shown + span {
-        top: 1.5rem;
-        font-size: 0.9em;
-    }
-
-    & .input:focus + span, & .input:valid + span {
-        top: 3rem;
-        font-size: 0.7em;
-        font-weight: 600;
-    }
-    & .input:valid + span {
-        color: green;
-    }
-    & .textarea {
-        resize: none;
-        background-color: #fff;
-        width: 100%;
-        padding: 1rem;
-        margin: .5rem;
-        outline: 0;
-        border-radius: 10px;
-    }
-
-    & .textarea + span {
-        position: absolute;
-        background-color: #fff;
-        border-radius: 1rem;
-        padding: .1rem;
-        left: 1rem;
-        top: 1.5rem;
-        color: grey;
-        font-size: 0.9em;
-        cursor: text;
-        transition: 0.3s ease;
-    }
-
-    & .textarea:placeholder-shown + span {
-        top: 1.5rem;
-        font-size: 0.9em;
-    }
-
-    & .textarea:focus + span, & .textarea:valid + span {
-        top: 4rem;
-        font-size: 0.7em;
-        font-weight: 600;
-    }
-    & .textarea:valid + span {
-        color: green;
-    }
-    &.invalid .textarea:invalid + span {
-        color: red;
-    }
-    /* & textarea{
-        field-sizing: content;
     } */
+    & input:focus + span, & input:valid + span, & textarea:focus + span, & textarea:valid + span {
+        bottom: -.5rem;
+        font-size: 0.7em;
+        font-weight: 600;
+    }
+    & input:valid + span ,& textarea:valid + span {
+        color: green;
+    }
+    &.invalid input:invalid + span, &.invalid textarea:invalid + span {
+        color: red;
+    }
 `;
 export const Button = styled.button`
 & {
