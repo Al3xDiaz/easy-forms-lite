@@ -4,7 +4,7 @@ export const Label =styled.label<{$name:string}>`
     grid-area: ${props=>props.$name};
     position: relative;
     display: flex;
-    background-color: #ffffff00;
+    background-color: var(--dark-background,--background,#fff);
     outline: 1px solid var(--primary,#1CB0F6);
     border-radius: 10px;
     width: 100%;

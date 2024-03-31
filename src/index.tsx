@@ -1,7 +1,7 @@
 import form from "./form";
 import { TextArea, TextField } from "./form/input";
 import { RangeField } from "./form/range";
-import {DatePicker} from "./form/datepicker";
+import {DatePicker,DatePickerFull} from "./form/datepicker";
 import { PasswordField } from "./form/password";
 import { CheckBox } from "./form/checkbox";
 import { FileGeneric,FileImage } from "./form/fileUpload";
@@ -16,6 +16,7 @@ export interface Iprops extends IForm{
     TextArea:typeof TextArea;
     RangeField: typeof RangeField;
     DatePicker: typeof DatePicker;
+    DatePickerFull: typeof DatePickerFull;
     PasswordField:typeof PasswordField;
     CheckBox: typeof CheckBox;
     FileGeneric: typeof FileGeneric;
@@ -32,6 +33,7 @@ export const Form:Iprops = Object.assign(form,{
     TextArea,
     RangeField,
     DatePicker,
+    DatePickerFull,
     PasswordField,
     CheckBox,
     FileGeneric,

@@ -13,7 +13,7 @@ export const Container:React.FC<IProps>=({id,style,label="label",children})=>{
   const [open,setOpen] =useState(false);
   useEffect(()=>{
     const item =localStorage.getItem(id);
-    setOpen(!!item);
+    setOpen(/^true$/.test(item||""));
   },[setOpen])
   useEffect(()=>{
     if (!open) return;
@@ -38,6 +38,7 @@ position: relative;
 display: flex;
 flex-direction:column;
 border-bottom: 1px solid #000;
+background-color: var(--dark-background,--background,#fff);
 
 & .head {
   display: flex;
