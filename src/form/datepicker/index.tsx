@@ -61,6 +61,20 @@ export const DatePicker: React.FC<IProps> = ({name,label})=>{
 
   return (
   <div style={{position:"relative",display:"grid",gridTemplateAreas:'"month year"',gridGap:"2rem",gridArea:name,padding:"1.5rem 0"}}>
+    <div style={{
+      display:openMonth||openYear?"initial":"none",
+      position:"fixed",
+      top:0,
+      bottom:0,
+      left:0,
+      right:0,
+      zIndex:1,
+    }}
+      onClick={()=>{
+        setOpenMonth(false);
+        setOpenYear(false);
+      }}
+    />
     <span style={{position:"absolute",top:0,left:0,color:"#7c7c7c"}}>{label||name}</span>
     <Label $name="month" onClick={()=>setOpenMonth(!openMonth)}>
       <div style={{padding:".5rem"}}>{monthsOfYear[value?.getMonth()||month]||"--select--"}</div>
@@ -126,12 +140,13 @@ const InputDate= styled.input<{$value?:string}>`
 const Menu= styled.div<{$open:boolean}>`
 display: ${props=>props.$open?"initial":"none"};
 position: absolute;
-top: 2.5rem;
+/* top: 2.5rem; */
+border-radius: 10px;
 box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 29px 0px;
-z-index: -1;
+z-index: 2;
 height: 20rem;
 overflow-y: scroll;
-width: 100%;
+background-color: #fff;
 
 & div {
   padding: .5rem;
