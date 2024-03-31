@@ -5,7 +5,7 @@ export const Label =styled.label<{$name:string}>`
     position: relative;
     display: flex;
     background-color: #ffffff00;
-    border: 1px solid var(--primary,#1CB0F6);
+    outline: 1px solid var(--primary,#1CB0F6);
     border-radius: 10px;
     width: 100%;
 

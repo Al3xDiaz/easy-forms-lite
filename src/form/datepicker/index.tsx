@@ -1,11 +1,28 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Label } from "../../stylesComponents";
 import { IInput } from "..";
 import { useForm } from "../../hooks";
 import styled from "styled-components";
+
+const currentYear = new Date().getFullYear();
+const years = Array.from({length: 100},(_,index)=>currentYear-index);
+const monthsOfYear = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December"
+];
 interface IProps extends IInput{
-}
-export const DatePicker:React.FC<IProps> = ({name,label,required,})=>{
+};
+export const DatePickerFull:React.FC<IProps> = ({name,label,required,...extraProps})=>{
   const {value,setProp} = useForm<Date>(name);
   const handleOnChange =useCallback<React.ChangeEventHandler<HTMLInputElement>>(({target})=>{
     if (!target.valueAsDate) return;
@@ -17,10 +34,54 @@ export const DatePicker:React.FC<IProps> = ({name,label,required,})=>{
   },[setProp])
   const spanText = `${required?"*":""}${label?label:name}`;
   return <Label $name={name}>
-    <InputDate type="date"  $value={value?.toLocaleDateString("es-US")} onChange={handleOnChange} />
+    <InputDate required={required} type="date"  $value={value?.toLocaleDateString("es-US")} onChange={handleOnChange} {...extraProps} />
     <span>{spanText}</span>
   </Label>
-}
+};
+export const DatePicker: React.FC<IProps> = ({name,label})=>{
+  const {value,setProp} = useForm<Date>(name);
+  const [month,setMonth] = useState(0);
+  const [year,setYear] = useState<number>(currentYear);
+  const [openMonth,setOpenMonth] = useState(false);
+  const handleClickMonth = useCallback((month:number)=>{
+    setOpenMonth(false);
+    setMonth(month);
+  },[setMonth,setOpenMonth])
+  const [openYear,setOpenYear] = useState(false);
+  const handleClickYear = useCallback((year:number)=>{
+    setOpenYear(false);
+    setYear(year);
+  },[setYear,setOpenYear])
+  useEffect(()=>{
+    if (!year && !month) return;
+    const value = new Date(year,month);
+    setProp({name,value})
+  },[year,month])
+
+
+  return (
+  <div style={{position:"relative",display:"grid",gridTemplateAreas:'"month year"',gridGap:"2rem",gridArea:name,padding:"1.5rem 0"}}>
+    <span style={{position:"absolute",top:0,left:0,color:"#7c7c7c"}}>{label||name}</span>
+    <Label $name="month" onClick={()=>setOpenMonth(!openMonth)}>
+      <div style={{padding:".5rem"}}>{monthsOfYear[value?.getMonth()||month]||"--select--"}</div>
+      <Menu $open={openMonth}>
+        {monthsOfYear.map((item,i)=>(<div key={i} onClick={()=>handleClickMonth(i)}>
+          {item}
+        </div>))}
+      </Menu>
+    </Label>
+    <Label $name="year" onClick={()=>setOpenYear(!openYear)}>
+      <div style={{padding:".5rem"}}>{value?.getFullYear()||year}</div>
+      <Menu $open={openYear}>
+        {years.map((item,i)=>(<div key={i} onClick={()=>handleClickYear(item)}>
+          {item}
+        </div>))}
+      </Menu>
+    </Label>
+
+  </div>
+  )
+};
 const InputDate= styled.input<{$value?:string}>`
   cursor: pointer;
   visibility: hidden;
@@ -39,7 +100,6 @@ const InputDate= styled.input<{$value?:string}>`
   }
   &::-webkit-calendar-picker-indicator {
     position: absolute;
-    z-index: 1;
     left: 0;
     top: 0;
 
@@ -62,4 +122,21 @@ const InputDate= styled.input<{$value?:string}>`
     content: '${props=>props.$value}';
     visibility: visible;
   }
-`
+`;
+const Menu= styled.div<{$open:boolean}>`
+display: ${props=>props.$open?"initial":"none"};
+position: absolute;
+top: 2.5rem;
+box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 29px 0px;
+z-index: -1;
+height: 20rem;
+overflow-y: scroll;
+width: 100%;
+
+& div {
+  padding: .5rem;
+}
+& div:hover {
+  background-color: blue;
+}
+`;

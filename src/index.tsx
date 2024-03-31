@@ -5,6 +5,7 @@ import {DatePicker} from "./form/datepicker";
 import { PasswordField } from "./form/password";
 import { CheckBox } from "./form/checkbox";
 import { FileGeneric,FileImage } from "./form/fileUpload";
+import { SelectField,Option } from "./form/select";
 import { Container } from "./form/container"
 import { Submit } from "./form/btn";
 
@@ -19,6 +20,9 @@ export interface Iprops extends IForm{
     CheckBox: typeof CheckBox;
     FileGeneric: typeof FileGeneric;
     FileImage: typeof FileImage;
+    SelectField: typeof SelectField;
+    Option: typeof Option;
+
     Container: typeof Container;
     Submit:typeof Submit;
 }
@@ -32,6 +36,8 @@ export const Form:Iprops = Object.assign(form,{
     CheckBox,
     FileGeneric,
     FileImage,
+    SelectField,
+    Option,
     Container,
     Submit,
 });
