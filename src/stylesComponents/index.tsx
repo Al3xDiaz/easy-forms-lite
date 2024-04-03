@@ -4,7 +4,7 @@ export const Label =styled.label<{$name:string}>`
     grid-area: ${props=>props.$name};
     position: relative;
     display: flex;
-    background-color: var(--dark-background,--background,#fff);
+    background-color: var(--dark-backgrund, var(--background, #fff));
     outline: 1px solid var(--primary,#1CB0F6);
     border-radius: 10px;
     width: 100%;
@@ -14,7 +14,6 @@ export const Label =styled.label<{$name:string}>`
         border: none;
         padding:1rem;
         margin: 0;
-        background-color: #fff;
         width: 100%;
         padding: 1rem;
         outline: 0;
@@ -22,7 +21,7 @@ export const Label =styled.label<{$name:string}>`
     }
     & input + span, & textarea + span {
         position: absolute;
-        background-color: #fff;
+        background-color: var(--dark-backgrund, var(--background, #fff));
         border-radius: 1rem;
         padding: .1rem;
         left: 1rem;

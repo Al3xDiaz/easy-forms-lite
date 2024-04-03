@@ -6,7 +6,7 @@ interface IProps {
   id: string;
   style?:CSSProperties;
   label?:string;
-  children?: JSX.Element | JSX.Element[];
+  children?: JSX.Element | JSX.Element[] | string;
 }
 
 export const Container:React.FC<IProps>=({id,style,label="label",children})=>{
@@ -16,15 +16,14 @@ export const Container:React.FC<IProps>=({id,style,label="label",children})=>{
     setOpen(/^true$/.test(item||""));
   },[setOpen])
   useEffect(()=>{
-    if (!open) return;
     const item = JSON.stringify(open);
     localStorage.setItem(id,item);
-  },[open])
+  })
   return (
     <Paper style={style}>
-      <div className="head">
+      <div className="head" onClick={()=>{setOpen(!open)}}>
         {label}
-        <span onClick={()=>{setOpen(!open)}}><ArrowDown style={{transform:open?"rotate(180deg)":""}} /></span>
+        <span><ArrowDown style={{transform:open?"rotate(180deg)":""}} /></span>
       </div>
       {open&&<div>
         {children}
@@ -38,9 +37,11 @@ position: relative;
 display: flex;
 flex-direction:column;
 border-bottom: 1px solid #000;
-background-color: var(--dark-background,--background,#fff);
+background-color: var(--dark-backgrund, var(--background, #fff));
+padding: 0 2rem;
 
 & .head {
+  cursor: pointer;
   display: flex;
   align-items: center;
 }
@@ -53,7 +54,6 @@ background-color: var(--dark-background,--background,#fff);
   border-radius: 100%;
   padding: .1rem .25rem;
   position: absolute;
-  right: 0;
-  cursor: pointer;
+  right: 1rem;
 }
 `
