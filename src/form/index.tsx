@@ -16,11 +16,11 @@ interface IForm{
     onSubmit? : (data:Dictionary,formData:FormData)=>(Promise<void> | void);
     className?: string;
     styles?:CSSProperties;
-    initialState: Dictionary;
+    initialState?: Dictionary;
 }
 type IFormProps = IForm & IPersitData
 
-const FormState:FC<IFormProps> =  ({initialState,children,className,onSubmit,persistData,styles})=>{
+const FormState:FC<IFormProps> =  ({initialState={},children,className,onSubmit,persistData,styles})=>{
     const [state,dispatch]= useReducer(reducer,{data:initialState,formData:new FormData()});
     const HandleSubmit = async (e:React.FormEvent<HTMLFormElement>)=>{
         e.preventDefault();
