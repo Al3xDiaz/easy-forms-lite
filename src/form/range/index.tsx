@@ -34,7 +34,7 @@ export const RangeField:FC<Iprops> = (props) => {
                 max={max}
                 {...extraProps}
             />
-            <span>{spanText}</span>
+            <span className='label'>{spanText}</span>
             <p>{` ${(value||min)/max*100}%`}</p>
         </Label>
     )

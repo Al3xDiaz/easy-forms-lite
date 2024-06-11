@@ -29,7 +29,7 @@ export const FileGeneric:React.FC<IPropsGeneric>=({name,style,multiple})=>{
       </svg>
       </div>
       <div className="text">
-      <span>{!!value.length?`upload ${value.length} file(s)`:"Click to upload image"}</span>
+      <span className="label">{!!value.length?`upload ${value.length} file(s)`:"Click to upload image"}</span>
       </div>
       <input type="file" multiple={multiple} onChange={handleOnChange} />
     </Label>

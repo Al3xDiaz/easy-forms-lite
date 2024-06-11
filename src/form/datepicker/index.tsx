@@ -35,7 +35,7 @@ export const DatePickerFull:React.FC<IProps> = ({name,label,required,...extraPro
   const spanText = `${required?"*":""}${label?label:name}`;
   return <Label $name={name}>
     <InputDate required={required} type="date"  $value={value?.toLocaleDateString("es-US")} onChange={handleOnChange} {...extraProps} />
-    <span>{spanText}</span>
+    <span className="label">{spanText}</span>
   </Label>
 };
 export const DatePicker: React.FC<IProps> = ({name,label})=>{

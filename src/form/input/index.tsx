@@ -27,7 +27,7 @@ export const TextField:FC<Iprops> = (props) => {
                 name={name}
                 {...extraProps}
             />
-            <span>{spanText}</span>
+            <span className='label'>{spanText}</span>
         </Label>
     )
 }
@@ -51,7 +51,7 @@ export const TextArea: FC<Iprops> = (props) => {
                 name={name}
                 {...extraProps}
             />
-            <span>{required?"*":""}{props.label?label:props.name}</span>
+            <span className='label'>{required?"*":""}{props.label?label:props.name}</span>
         </Label>
     )
 }
