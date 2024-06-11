@@ -19,7 +19,7 @@ export const Label =styled.label<{$name:string}>`
         outline: 0;
         border: none;
     }
-    & input + span, & textarea + span {
+    & input + span.label, & textarea + span.label, input > span.icon, & textarea > span.icon {
         position: absolute;
         background-color: var(--dark-backgrund, var(--background, #fff));
         border-radius: 1rem;
@@ -31,20 +31,22 @@ export const Label =styled.label<{$name:string}>`
         cursor: text;
         transition: 0.3s ease;
     }
-    /* & input:placeholder-shown + span, & textarea:placeholder-shown + span {
-        top: 1.5rem;
-        font-size: 0.9em;
-    } */
-    & input:focus + span, & input:valid + span, & textarea:focus + span, & textarea:valid + span {
+    & input:focus + span.label, & input:valid + span.label, & textarea:focus + span.label, & textarea:valid + span.label {
         bottom: -.5rem;
         font-size: 0.7em;
         font-weight: 600;
     }
-    & input:valid + span ,& textarea:valid + span {
+    & input:valid + span.label ,& textarea:valid + span.label {
         color: green;
     }
-    &.invalid input:invalid + span, &.invalid textarea:invalid + span {
+    & .invalid input:invalid + span.label, &.invalid textarea:invalid + span.label {
         color: red;
+    }
+    & span.icon {
+        position: absolute;
+        left: auto;
+        right: 1rem;
+        top: 1rem;
     }
 `;
 export const Button = styled.button`
