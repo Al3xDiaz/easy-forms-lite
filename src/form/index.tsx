@@ -1,5 +1,6 @@
 import React, { CSSProperties, FC, useReducer, } from "react";
 import {context,Dictionary,reducer} from "../context";
+import "index.css"
 
 export interface IInput{
     name: string;
