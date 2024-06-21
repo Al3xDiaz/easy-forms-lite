@@ -62,10 +62,5 @@ const Form = styled.form`
     width: 2rem;
     height: 2rem;
   }
-  & {
-    display: grid;
-    grid-template-areas: "mames mames" "send ." ;
-    gap: 1rem;
-  }
 `;
 export default FormState;
