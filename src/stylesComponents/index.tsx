@@ -10,6 +10,7 @@ export const Label =styled.label<{$name:string}>`
     width: 100%;
 
     & input, & textarea {
+        resize: none;
         border-radius: 10px;
         border: none;
         padding:1rem;
@@ -51,6 +52,7 @@ export const Label =styled.label<{$name:string}>`
 `;
 export const Button = styled.button`
 & {
+    position: relative;
     appearance: button;
     background-color: var(--primary--bg,#189ad6);
     border: solid transparent;

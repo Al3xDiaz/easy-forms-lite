@@ -1,4 +1,4 @@
-import React, { CSSProperties, FC, useReducer,} from "react";
+import React, { CSSProperties, FC, useReducer, } from "react";
 import {context,Dictionary,reducer} from "../context";
 
 export interface IInput{
@@ -21,22 +21,26 @@ interface IForm{
 type IFormProps = IForm & IPersitData
 
 const FormState:FC<IFormProps> =  ({initialState={},children,className,onSubmit,persistData,styles})=>{
-    const [state,dispatch]= useReducer(reducer,{data:initialState,formData:new FormData()});
+    const [state,dispatch]= useReducer(reducer,{data:initialState,formData:new FormData(),status:"ready"});
     const HandleSubmit = async (e:React.FormEvent<HTMLFormElement>)=>{
-        e.preventDefault();
-        onSubmit && await onSubmit(state.data,state.formData);
-        if(!persistData){
-            dispatch && dispatch({type:"SET_EMPTY"});
+        try {
+            dispatch({type:"SET_STATUS",payload:"loading"})
+            e.preventDefault();
+            onSubmit && await onSubmit(state.data,state.formData);
+            if(!persistData){
+                dispatch && dispatch({type:"SET_EMPTY"});
+            }
+            dispatch({type:"SET_STATUS",payload:"ready"})
+        } catch (error) {
+            dispatch({type:"SET_STATUS",payload:"error"})
         }
     }
     return (
         <context.Provider value={{state,dispatch}}>
-            <form aria-label="form" className={className} style={styles} onSubmit={HandleSubmit}>
+            <form aria-label="form" className={`${className || ""} ${state.status}`} style={styles} onSubmit={HandleSubmit}>
                 <>{children}</>
             </form>
        </context.Provider>
     )
 }
-
-
 export default FormState;

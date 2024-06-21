@@ -20,8 +20,12 @@ interface ISetActionFormData {
 interface ISetActionEmpty{
     type: "SET_EMPTY";
 }
+interface ISetActionStatus{
+    type: "SET_STATUS";
+    payload: "ready" | "loading" | "error";
+}
 
-export type IAction = ISetAction | ISetActionFormData | ISetActionEmpty;
+export type IAction = ISetAction | ISetActionFormData | ISetActionEmpty | ISetActionStatus;
 
 export const reducer = (state: IContextState, action:IAction ):IContextState => {
     switch (action.type) {
@@ -37,6 +41,7 @@ export const reducer = (state: IContextState, action:IAction ):IContextState => 
             return {
                 data:{},
                 formData:new FormData(),
+                status: "ready",
             }
         case "SET_PROP_FORMDATA":
             state.formData.delete(action.payload.name)
@@ -44,6 +49,11 @@ export const reducer = (state: IContextState, action:IAction ):IContextState => 
                 state.formData.append(action.payload.name,file)
             })
             return state;
+        case "SET_STATUS":
+            return {
+                ...state,
+                status: action.payload,
+            }
         default:
             return state;
     }
